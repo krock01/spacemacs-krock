@@ -139,11 +139,11 @@ It should only modify the values of Spacemacs settings."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Monaco"
+   dotspacemacs-default-font '("Menlo"
                                  :size 14
                                  :weight normal
                                  :width normal
-                                 :powerline-scale 1.2)
+                                 :powerline-scale 1.1)
    ;; The leader key (default "SPC")
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands `M-x' (after pressing on the leader key).
@@ -361,13 +361,14 @@ before packages are loaded."
   (setq aw-scope 'frame)
   (global-set-key (kbd "C-x O") 'other-frame)
   (global-set-key [remap other-window] 'ace-window)
+  (global-set-key (kbd "\C-c TAB") 'yas-expand)
   (custom-set-faces
    '(aw-leading-char-face
      ((t (:inherit ace-jump-face-foreground :height 3.0))))
    )
   (setq powerline-default-separator 'arrow)
-  )
-
+  (add-to-list 'yas-snippet-dirs "~/.spacemacs.d/private/snippets")
+)
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
 (defun dotspacemacs/emacs-custom-settings ()
