@@ -386,6 +386,24 @@ before packages are loaded."
   (defun clang-format-bindings ()
     (define-key c++-mode-map [tab] 'clang-format-buffer))
   (add-hook 'before-save-hook 'tide-format-before-save)
+  (add-hook 'js2-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook 'web-beautify-js-buffer t t)))
+  (add-hook 'js-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook 'web-beautify-js-buffer t t)))
+  (add-hook 'json-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook 'web-beautify-js-buffer t t)))
+  (add-hook 'html-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook 'web-beautify-html-buffer t t)))
+  (add-hook 'web-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook 'web-beautify-html-buffer t t)))
+  (add-hook 'css-mode-hook
+            (lambda ()
+              (add-hook 'before-save-hook 'web-beautify-css-buffer t t)))
 )
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
