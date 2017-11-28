@@ -31,17 +31,12 @@
 
 (defconst krock-packages
   '(
-    ;;nodejs-repl
-    git-gutter
-    ))
+    nodejs-repl
+     ))
 (defun krock/init-nodejs-repl()
   (use-package nodejs-repl
     :ensure t)
-  (use-package git-gutter
-    :ensure t
-    :init
-    (global-git-gutter-mode +1))
-  )
+ )
 (defun krock/post-init-nodejs-repl()
     (add-hook 'js-mode-hook
               (lambda ()
